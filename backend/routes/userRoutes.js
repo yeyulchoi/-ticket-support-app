@@ -1,19 +1,12 @@
 const express = require('express')
 const router =express.Router()
-const {registerUser,loginUser}=require('../controller/userController')
-
+const {registerUser,loginUser, getMe}=require('../controller/userController')
+const {protect} =require('../middleware/authMiddleware')
 
 router.post('/',registerUser)
 
 router.post('/login',loginUser)
 
-// router.put('/:id',(req,res)=>{
-//     res.send('hello post')
-// })
-
-// router.delete('/:id',(req,res)=>{
-//     res.send('hello post')
-// })
-
+router.get('/me',protect, getMe)
 
 module.exports =router
