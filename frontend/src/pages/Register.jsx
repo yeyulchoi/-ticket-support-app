@@ -51,9 +51,7 @@ const onSubmit=(e)=>{
     if(password !== confirmPassword){
     toast.error('Passwords do not match')
     }else{
-        const userData = {
-            name,email,password
-        }
+        const userData = {name,email,password }
         dispatch(register(userData))
     }
 }

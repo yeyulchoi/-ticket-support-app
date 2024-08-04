@@ -1,18 +1,21 @@
 import{createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import authService from'./authService'
 
+// Get user from localstorage
+
+const user = JSON.parse(localStorage.getItem('user'))
 
 
 
 const initialState ={
-    user:null,
+    user:user? user: null,
     isError:false,
     isSuccess:false,
     isLoading:false,
     message:''
 }
 
-//register new user
+//register new user   // auth/register is action type (can name it anything.) and then make a api call eg. fetching or submitting data
 export const register = createAsyncThunk('auth/register',
     async (user,thunkAPI)=>{
         try {
@@ -46,7 +49,7 @@ export const login = createAsyncThunk('auth/login',
 
 
 export const logout = createAsyncThunk('auth/logout',async()=>{
-    await authService.logout();
+    await authService.logout()  // localstorage's taken is removed,  remove clear localstorage or other client side storage.
     return{}
 })
 

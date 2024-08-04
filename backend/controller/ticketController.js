@@ -35,7 +35,7 @@ const createTicket = asyncHandler(async(req, res)=>{
                                         description,
                                         user:req.user.id, 
                                         status:'new'})
-    res.status(200).json(ticket)
+    res.status(201).json(ticket)
 })
 
 //get single ticket  /api/tickets/:id
