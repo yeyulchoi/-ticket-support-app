@@ -10,13 +10,13 @@ function Tickets() {
     const {tickets,isLoading, isSuccess} = useSelector((state)=>state.tickets)
     const dispatch = useDispatch()
 
-    // useEffect(()=>{
-    //     return()=>{
-    //         if(isSuccess){
-    //             dispatch(reset())
-    //         }          
-    //     }
-    // },[dispatch, isSuccess])
+    useEffect(()=>{
+        return()=>{
+            if(isSuccess){
+                dispatch(reset())
+            }          
+        }
+    },[dispatch, isSuccess])
 
     useEffect(()=>{
         dispatch(getTickets())

@@ -4,8 +4,8 @@ const {getTickets, createTicket, getSingleTicket, deleteTicket,updateTicket} =re
 const {protect} =require('../middleware/authMiddleware')
 
 //re-route into note route
-const noteRoute = require('./noteRoute')
-router.use('/:ticketId/notes',noteRoute)
+const noteRouter = require('./noteRoutes')
+router.use('/:ticketId/notes',noteRouter)
 
 // concise and organized way to define routes that share the same path but have different HTTP methods
 router.route('/').get(protect, getTickets).post(protect, createTicket)
